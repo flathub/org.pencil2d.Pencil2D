@@ -48,8 +48,9 @@ modules:
 
   - name: pencil2d
     buildsystem: qmake
+    builddir: true
     post-install:
-      - install -Dm644 -t /app/share/metainfo org.pencil2d.Pencil2D.appdata.xml
+      - install -Dm644 -t /app/share/metainfo ../org.pencil2d.Pencil2D.appdata.xml
       - mv /app/share/mime/packages/pencil2d.xml /app/share/mime/packages/org.pencil2d.Pencil2D.xml
       - desktop-file-edit --set-key=MimeType --set-value='application/x-pencil2d-pcl;application/x-pencil2d-pclx;'
         /app/share/applications/pencil2d.desktop
