@@ -52,11 +52,9 @@ modules:
     post-install:
       - install -Dm644 -t /app/share/metainfo ../org.pencil2d.Pencil2D.appdata.xml
       - mv /app/share/mime/packages/pencil2d.xml /app/share/mime/packages/org.pencil2d.Pencil2D.xml
-      - desktop-file-edit --set-key=MimeType --set-value='application/x-pencil2d-pcl;application/x-pencil2d-pclx;'
-        /app/share/applications/pencil2d.desktop
     sources:
       - type: file
         path: org.pencil2d.Pencil2D.appdata.xml
       - type: archive
-        url: https://github.com/pencil2d/pencil/archive/v0.6.1.1.tar.gz
-        sha256: 30f09cef0e8854e23f864c8639ac43888183370765b4398077951cb9f6d0f340
+        url: https://github.com/pencil2d/pencil/archive/v0.6.2.tar.gz
+        sha256: a8bf1034f6b091ec49d6359da4ca0332c8bd2146a33a19b6c662f4ccfed9629a
