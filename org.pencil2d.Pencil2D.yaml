@@ -1,7 +1,7 @@
 app-id: org.pencil2d.Pencil2D
 branch: stable
 runtime: org.kde.Platform
-runtime-version: '5.11'
+runtime-version: '5.12'
 sdk: org.kde.Sdk
 command: pencil2d
 rename-desktop-file: pencil2d.desktop
@@ -16,18 +16,20 @@ finish-args:
 cleanup:
   - /include
   - /lib/pkgconfig
-modules:     
+modules:
+
   - name: libx264
     config-opts:
       - --disable-cli
       - --enable-shared
     sources:
       - type: archive
-        url: https://download.videolan.org/x264/snapshots/x264-snapshot-20171223-2245-stable.tar.bz2
-        sha256: ee4ba2c3d1caf786ad66d3fa86bdc368a8f827318788a62a9c8444b2c35816bf
+        url: https://download.videolan.org/x264/snapshots/x264-snapshot-20180807-2245-stable.tar.bz2
+        sha256: 1439f1a054c87965089b646e77d16e1a8bf2f9687e4dd696ac518e44c7644c2a
 
   - name: ffmpeg
     config-opts:
+      - --enable-rpath
       - --enable-gpl
       - --disable-static
       - --enable-shared
@@ -37,21 +39,26 @@ modules:
       - --enable-libopus
       - --enable-libvpx
       - --enable-libx264
-    post-install:
-      - chrpath -d /app/bin/ffmpeg
     cleanup:
       - /share/ffmpeg/examples
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
-        sha256: a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97
+        url: https://ffmpeg.org/releases/ffmpeg-4.0.3.tar.xz
+        sha256: 253c37e3f1d3626a2566e496554de9a4c29050753660835909a466d66b12e2ed
 
   - name: pencil2d
     buildsystem: qmake
     builddir: true
+    config-opts:
+      - CONFIG+=release
+      - CONFIG+=force_debug_info
+      - DEFINES+=PENCIL2D_RELEASE
     post-install:
       - install -Dm644 -t /app/share/metainfo ../org.pencil2d.Pencil2D.appdata.xml
-      - mv /app/share/mime/packages/pencil2d.xml /app/share/mime/packages/org.pencil2d.Pencil2D.xml
+      - mv /app/share/mime/packages/{pencil2d.xml,org.pencil2d.Pencil2D.xml}
+    cleanup:
+      - /share/bash-completion
+      - /share/zsh
     sources:
       - type: file
         path: org.pencil2d.Pencil2D.appdata.xml
