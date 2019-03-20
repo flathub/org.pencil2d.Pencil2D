@@ -18,7 +18,7 @@ cleanup:
   - /lib/pkgconfig
 modules:
 
-  - name: libx264
+  - name: 'x264'
     config-opts:
       - --disable-cli
       - --enable-shared
@@ -63,5 +63,5 @@ modules:
       - type: file
         path: org.pencil2d.Pencil2D.appdata.xml
       - type: archive
-        url: https://github.com/pencil2d/pencil/archive/v0.6.2.tar.gz
-        sha256: a8bf1034f6b091ec49d6359da4ca0332c8bd2146a33a19b6c662f4ccfed9629a
+        url: https://github.com/pencil2d/pencil/archive/v0.6.3.tar.gz
+        sha256: 30cd9d9b3fa9211a2a529a16268abe8a7b5be35829a7f341f4f10c4a55cdee10
