@@ -65,3 +65,7 @@ modules:
       - type: archive
         url: https://github.com/pencil2d/pencil/archive/v0.6.3.tar.gz
         sha256: 30cd9d9b3fa9211a2a529a16268abe8a7b5be35829a7f341f4f10c4a55cdee10
+      - type: shell
+        commands:
+          - sed -i '3i <releases><release version=\"0.6.3\" date=\"2019-03-17\"/></releases>'
+            org.pencil2d.Pencil2D.appdata.xml
