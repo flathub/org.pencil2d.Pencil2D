@@ -1,7 +1,7 @@
 app-id: org.pencil2d.Pencil2D
 branch: stable
 runtime: org.kde.Platform
-runtime-version: '5.12'
+runtime-version: '5.14'
 sdk: org.kde.Sdk
 command: pencil2d
 rename-desktop-file: pencil2d.desktop
@@ -24,8 +24,8 @@ modules:
       - --enable-shared
     sources:
       - type: archive
-        url: https://download.videolan.org/x264/snapshots/x264-snapshot-20180807-2245-stable.tar.bz2
-        sha256: 1439f1a054c87965089b646e77d16e1a8bf2f9687e4dd696ac518e44c7644c2a
+        url: https://download.videolan.org/x264/snapshots/x264-snapshot-20190305-2245-stable.tar.bz2
+        sha256: be52c96ef8bd930fbc1ecff03abac9b94976b444ea7641345e08e20d9e594d16
 
   - name: ffmpeg
     config-opts:
@@ -43,8 +43,8 @@ modules:
       - /share/ffmpeg/examples
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-4.0.3.tar.xz
-        sha256: 253c37e3f1d3626a2566e496554de9a4c29050753660835909a466d66b12e2ed
+        url: https://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz
+        sha256: cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c
 
   - name: pencil2d
     buildsystem: qmake
