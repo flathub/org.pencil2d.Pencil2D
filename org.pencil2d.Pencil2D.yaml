@@ -4,10 +4,9 @@ runtime: org.kde.Platform
 runtime-version: '5.14'
 sdk: org.kde.Sdk
 command: pencil2d
-rename-desktop-file: pencil2d.desktop
-rename-icon: pencil2d
 finish-args:
   - --socket=wayland
+  - --share=network # to make the update checker work
   - --share=ipc
   - --socket=x11
   - --device=dri
@@ -52,21 +51,13 @@ modules:
     config-opts:
       - CONFIG+=release
       - CONFIG+=force_debug_info
-      - DEFINES+=PENCIL2D_RELEASE
-    post-install:
-      - install -Dm644 -t /app/share/metainfo ../org.pencil2d.Pencil2D.appdata.xml
-      - mv /app/share/mime/packages/{pencil2d.xml,org.pencil2d.Pencil2D.xml}
+      - CONFIG+=GIT
+      - CONFIG+=PENCIL2D_RELEASE
     cleanup:
       - /share/bash-completion
       - /share/zsh
     sources:
-      - type: file
-        path: org.pencil2d.Pencil2D.appdata.xml
       - type: git
         url: https://github.com/pencil2d/pencil.git
-        commit: 1b86eb400f548c6e9af47f2f17b0168fdb44e2c7
-        tag: v0.6.4
-      - type: shell
-        commands:
-          - sed -i '3i <releases><release version=\"0.6.4\" date=\"2019-06-03\"/></releases>'
-            org.pencil2d.Pencil2D.appdata.xml
+        commit: 50a0c7c318f38988af85d34e955a5a78d3953474
+        tag: v0.6.5
