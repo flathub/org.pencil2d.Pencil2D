@@ -22,9 +22,9 @@ modules:
       - --disable-cli
       - --enable-shared
     sources:
-      - type: archive
-        url: https://download.videolan.org/x264/snapshots/x264-snapshot-20190305-2245-stable.tar.bz2
-        sha256: be52c96ef8bd930fbc1ecff03abac9b94976b444ea7641345e08e20d9e594d16
+      - type: git
+        url: https://code.videolan.org/videolan/x264.git
+        commit: 544c61f082194728d0391fb280a6e138ba320a96
 
   - name: ffmpeg
     config-opts:
@@ -42,8 +42,8 @@ modules:
       - /share/ffmpeg/examples
     sources:
       - type: archive
-        url: https://www.ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz
-        sha256: cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c
+        url: https://www.ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz
+        sha256: ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb
 
   - name: pencil2d
     buildsystem: qmake
@@ -59,5 +59,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/pencil2d/pencil.git
-        commit: 50a0c7c318f38988af85d34e955a5a78d3953474
-        tag: v0.6.5
+        commit: 3b3229e2d95e78aff9fac09cc4d9b0d94e1a7535
+        tag: v0.6.6
