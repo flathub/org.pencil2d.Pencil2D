@@ -1,14 +1,14 @@
 app-id: org.pencil2d.Pencil2D
 default-branch: stable
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: '5.15-22.08'
 sdk: org.kde.Sdk
 command: pencil2d
 finish-args:
   - --socket=wayland
   - --share=network # to make the update checker work
   - --share=ipc
-  - --socket=x11
+  - --socket=fallback-x11
   - --device=dri
   - --socket=pulseaudio
   - --filesystem=host # to make saving work
