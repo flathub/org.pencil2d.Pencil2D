@@ -61,3 +61,8 @@ modules:
         url: https://github.com/pencil2d/pencil.git
         commit: 3b3229e2d95e78aff9fac09cc4d9b0d94e1a7535
         tag: v0.6.6
+      # Catch2 from release does not compile with newer compilers
+      - type: file
+        url: https://github.com/pencil2d/pencil/raw/19eabfedfc10587e6c7999ef393613634308fecc/tests/src/catch.hpp
+        sha256: 27da57c7a06d09be8dd81fab7246b79e7892b6ae7e4e49ba8631f1d5a955e3fc
+        dest: tests/src
