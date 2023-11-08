@@ -1,7 +1,7 @@
 app-id: org.pencil2d.Pencil2D
 default-branch: stable
 runtime: org.kde.Platform
-runtime-version: '5.15-22.08'
+runtime-version: '5.15-23.08'
 sdk: org.kde.Sdk
 command: pencil2d
 finish-args:
@@ -42,8 +42,13 @@ modules:
       - /share/ffmpeg/examples
     sources:
       - type: archive
-        url: https://www.ffmpeg.org/releases/ffmpeg-4.3.1.tar.xz
-        sha256: ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb
+        url: https://www.ffmpeg.org/releases/ffmpeg-4.3.6.tar.xz
+        sha256: f4b173d4d5f539a3699ef13d12a92dd4778ba55c26be1f3dd8f901b98987cc62
+      # FFmpeg 4 does not compile with newer compilers
+      - type: file
+        url: https://github.com/FFmpeg/FFmpeg/raw/effadce6c756247ea8bae32dc13bb3e6f464f0eb/libavcodec/x86/mathops.h
+        sha256: 3064a439372b5527c7d9e4c82ac9a4d43b9e87b504ed84ac412eef767e8435ec
+        dest: libavcodec/x86
 
   - name: pencil2d
     buildsystem: qmake
