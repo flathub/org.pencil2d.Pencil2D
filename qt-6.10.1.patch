@@ -1,0 +1,26 @@
+From 17940f4dbafec6db59aef1f82d0024502d089e0a Mon Sep 17 00:00:00 2001
+From: "Benjamin A. Beasley" <code@musicinmybrain.net>
+Date: Mon, 1 Dec 2025 09:37:36 +0000
+Subject: [PATCH] Fix Qt 6.10.1 compatibility
+
+`QString::arg` no longer accepts arguments of types that implicitly
+convert to integral types.
+
+https://doc.qt.io/qt-6/qstring.html#arg-2
+---
+ core_lib/src/interface/editor.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core_lib/src/interface/editor.cpp b/core_lib/src/interface/editor.cpp
+index e2e5402e9f..83c232c53b 100644
+--- a/core_lib/src/interface/editor.cpp
++++ b/core_lib/src/interface/editor.cpp
+@@ -494,7 +494,7 @@ Status Editor::openObject(const QString& strFilePath, const std::function<void(i
+     }
+     if (!fileInfo.isReadable())
+     {
+-        dd << QString("Permissions: 0x%1").arg(fileInfo.permissions(), 0, 16);
++        dd << QString("Permissions: 0x%1").arg(static_cast<int>(fileInfo.permissions()), 0, 16);
+         return Status(Status::ERROR_FILE_CANNOT_OPEN,
+                       dd,
+                       tr("Could not open file"),
