@@ -16,35 +16,6 @@ cleanup:
   - /include
   - /lib/pkgconfig
 modules:
-
-  - name: 'x264'
-    config-opts:
-      - --disable-cli
-      - --enable-shared
-    sources:
-      - type: git
-        url: https://code.videolan.org/videolan/x264.git
-        commit: 544c61f082194728d0391fb280a6e138ba320a96
-
-  - name: ffmpeg
-    config-opts:
-      - --enable-rpath
-      - --enable-gpl
-      - --disable-static
-      - --enable-shared
-      - --disable-doc
-      - --disable-ffplay
-      - --disable-ffprobe
-      - --enable-libopus
-      - --enable-libvpx
-      - --enable-libx264
-    cleanup:
-      - /share/ffmpeg/examples
-    sources:
-      - type: archive
-        url: https://www.ffmpeg.org/releases/ffmpeg-4.3.7.tar.xz
-        sha256: 177d074943251bec33e1f9bc5979378ff5771882482ba9b3aee2cb18dd400554
-
   - name: pencil2d
     buildsystem: qmake
     builddir: true
