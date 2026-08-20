@@ -20,20 +20,14 @@ modules:
     buildsystem: qmake
     builddir: true
     config-opts:
-      - CONFIG+=release
-      - CONFIG+=force_debug_info
+      - CONFIG-=debug_and_release
       - CONFIG+=GIT
-      - CONFIG+=PENCIL2D_RELEASE
-      - VERSION=0.7.0
+      - VERSION=0.7.2
     cleanup:
       - /share/bash-completion
       - /share/zsh
     sources:
       - type: git
         url: https://github.com/pencil2d/pencil.git
-        commit: 7a0918f8baca1a090c1d58b29b13c70e11d564bf
-        tag: v0.7.0
-      - type: patch
-        path: qt-6.9.patch
-      - type: patch
-        path: qt-6.10.1.patch
+        commit: 022529ab1a83eb278ae6c7bc3ce501307db8756f
+        tag: v0.7.2
