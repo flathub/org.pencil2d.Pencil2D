@@ -30,3 +30,6 @@ modules:
         url: https://github.com/pencil2d/pencil.git
         commit: 022529ab1a83eb278ae6c7bc3ce501307db8756f
         tag: v0.7.2
+        x-checker-data:
+          type: git
+          tag-pattern: ^v([\d.]+)$
